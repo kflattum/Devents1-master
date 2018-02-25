@@ -91,7 +91,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
     }
 
     // Remove a entry by giving its index
-    public void removeEntry(long rowIndex) {
+    public void removeEvent(long rowIndex) {
         SQLiteDatabase dbObj = getWritableDatabase();
         dbObj.delete(TABLE_NAME_ENTRIES, KEY_ROWID + "=" + rowIndex, null);
         dbObj.close();
@@ -99,7 +99,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
 
     // Query a specific entry by its index. Return a cursor having each column
     // value
-    public CampusEvent fetchEntryByIndex(long rowId) throws SQLException {
+    public CampusEvent fetchEventByIndex(long rowId) throws SQLException {
         SQLiteDatabase dbObj = getReadableDatabase();
         CampusEvent event = null;
 
@@ -117,7 +117,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
     }
 
     // Query the entire table, return all rows
-    public ArrayList<CampusEvent> fetchEntries() {
+    public ArrayList<CampusEvent> fetchEvents() {
         SQLiteDatabase dbObj = getReadableDatabase();
         ArrayList<CampusEvent> entryList = new ArrayList<CampusEvent>();
 
