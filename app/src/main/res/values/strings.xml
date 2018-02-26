@@ -1,4 +1,20 @@
 <resources>
+
+    <string name="user_profile_preference">Name, Email, Class, etc</string>
+    <string name="summary_user_profile">User Profile</string>
+
+    <string name="account_preferences">Account Preferences</string>
+    <string name="dialog_based_preferences">Dialog-based preferences</string>
+    <string name="privacy_checkbox_preference">Privacy Setting</string>
+    <string name="summary_privacy_preference">Posting your records anonymously</string>
+    <string name="unit_preference">Unit Preference</string>
+    <string name="summary_unit_preference">Select the units</string>
+    <string name="comments_preference">Comments</string>
+    <string name="summary_comments_preference">Please enter your comments</string>
+    <string name="webpage_intent_preference">Webpage</string>
+    <string name="summary_webpage_intent_preference">http://web.cs.dartmouth.edu/</string>
+
+
     <string name="app_name">DEvents</string>
     <string name="devent_logo">DEvent logo</string>
 
@@ -18,6 +34,10 @@
     <string name="ui_buttonsave">Save</string>
     <string name="ui_buttoncancel">Cancel</string>
 
+    <string name="Select_Program">Select current program</string>
+
+    <string name="Select_Year">Select year</string>
+    <string name="Select_Major">Select Major</string>
     <string name="userclass">userclass</string>
     <string name="male">male</string>
     <string name="female">female</string>
@@ -72,6 +92,76 @@
         <item>End</item>
         <item>Location</item>
         <item>Description</item>
+    </string-array>
+
+    <string name="Select_GreekSociety">Select Greek Society</string>
+    <string-array name="Greek">
+        <item>NA</item>
+        <item>Alpha Chi Alpha</item>
+        <item>Alpha Kappa Alpha Sorority</item>
+        <item>Alpha Phi</item>
+
+        <item>Alpha Phi Alpha, Fraternity</item>
+        <item>Alpha Pi Omega, Sorority</item>
+        <item>Alpha Theta</item>
+
+        <item>Alpha Xi Delta</item>
+        <item>Beta Alpha Omega</item>
+        <item>Bones Gate</item>
+
+        <item>Chi Delta</item>
+        <item>Chi Gamma Epsilon</item>
+        <item>Chi Heorot</item>
+
+        <item>Epsilon Kappa Theta</item>
+        <item>Gamma Delta Chi</item>
+        <item>Kappa Delta</item>
+
+        <item>Kappa Delta Epsilon</item>
+        <item>Kappa Kappa Gamma</item>
+        <item>Kappa Kappa Kappa</item>
+
+        <item>Lambda Upsilon Lambda</item>
+        <item>Phi Delta Alpha</item>
+        <item>Phi Tau</item>
+
+        <item>Psi Upsilon</item>
+        <item>Sigma Delta</item>
+        <item>Sigma Nu</item>
+
+        <item>Sigma Phi Epsilon</item>
+        <item>The Tabard</item>
+        <item>Theta Delta Chi</item>
+
+        <item>Zeta Psi</item>
+
+    </string-array>
+
+
+
+
+    <string-array name="program">
+        <item>Undergraduate</item>
+        <item>Graduate Masters</item>
+        <item>Graduate PhD</item>
+        <item>Faculty</item>
+    </string-array>
+
+
+    <string-array name="Major">
+        <item>Arts</item>
+        <item>Humanities</item>
+        <item>Science, Technology and Math</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="class_year">
+        <item>NA</item>
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+
     </string-array>
 
     <string name="ui_manual_input_location_hint">ex. Kemmeny 001</string>

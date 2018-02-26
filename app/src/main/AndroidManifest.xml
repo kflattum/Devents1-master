@@ -54,6 +54,9 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
+        <activity
+            android:name=".UserProfile"
+            android:label="User Profile" />
         <activity android:name=".DisplayEventActivity" />
         <activity android:name=".FunctionActivity"></activity>
     </application>

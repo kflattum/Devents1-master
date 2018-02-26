@@ -15,7 +15,6 @@ public class CreateFragment extends Fragment {
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setRetainInstance(true);
         myIntent = new Intent(getActivity(),  CreateCampusEvent.class);
         startActivityForResult(myIntent, 0);
 

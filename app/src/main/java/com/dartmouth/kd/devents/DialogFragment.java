@@ -58,7 +58,7 @@ public class DialogFragment extends android.app.DialogFragment {
                     new DialogInterface.OnClickListener() {
                      public void onClick(DialogInterface dialog, int item) {
 
-                      ((UserProfile) parent).onPhotoPickerItemSelected(item);
+                     // ((UserProfile) parent).onPhotoPickerItemSelected(item);
                      }
                     });
             return builder.create();

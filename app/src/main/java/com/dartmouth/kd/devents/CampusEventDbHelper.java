@@ -17,7 +17,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
     // Database name string
     public static final String DATABASE_NAME = "CampusEventsDB";
     // Table name string. (Only one table)
-    private static final String TABLE_NAME_ENTRIES = "ENTRIES";
+    private static final String TABLE_EVENT_ENTRIES = "EVENTS";
 
     // Version code
     private static final int DATABASE_VERSION = 1;
@@ -35,12 +35,12 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
     // SQL query to create the table for the first time
     // Data types are defined below
     private static final String CREATE_TABLE_ENTRIES = "CREATE TABLE IF NOT EXISTS "
-            + TABLE_NAME_ENTRIES
-            + " ("
+            + TABLE_EVENT_ENTRIES
+            + "("
             + KEY_ROWID
             + " INTEGER PRIMARY KEY AUTOINCREMENT, "
             + KEY_TITLE
-            + " TEXT NOT NULL, "
+            + " TEXT, "
             + KEY_DATE
             + " DATETIME NOT NULL, "
             + KEY_START
@@ -48,9 +48,9 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
             + KEY_END
             + " DATETIME NOT NULL, "
             + KEY_LOCATION
-            + " TEXT NOT NULL, "
-            + KEY_DESCRIPTION
             + " TEXT, "
+            + KEY_DESCRIPTION
+            + " TEXT "
             + ");";
 
     private static final String[] mColumnList = new String[]{KEY_ROWID,
@@ -87,7 +87,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
 
 
         SQLiteDatabase dbObj = getWritableDatabase();
-        long id = dbObj.insert(TABLE_NAME_ENTRIES, null, value);
+        long id = dbObj.insert(TABLE_EVENT_ENTRIES, null, value);
         dbObj.close();
         return id;
     }
@@ -95,7 +95,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
     // Remove a entry by giving its index
     public void removeEvent(long rowIndex) {
         SQLiteDatabase dbObj = getWritableDatabase();
-        dbObj.delete(TABLE_NAME_ENTRIES, KEY_ROWID + "=" + rowIndex, null);
+        dbObj.delete(TABLE_EVENT_ENTRIES, KEY_ROWID + "=" + rowIndex, null);
         dbObj.close();
     }
 
@@ -105,7 +105,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase dbObj = getReadableDatabase();
         CampusEvent event = null;
 
-        Cursor cursor = dbObj.query(true, TABLE_NAME_ENTRIES, mColumnList,
+        Cursor cursor = dbObj.query(true, TABLE_EVENT_ENTRIES, mColumnList,
                 KEY_ROWID + "=" + rowId, null, null, null, null, null);
 
         if (cursor.moveToFirst()) {
@@ -123,7 +123,7 @@ public class CampusEventDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase dbObj = getReadableDatabase();
         ArrayList<CampusEvent> entryList = new ArrayList<CampusEvent>();
 
-        Cursor cursor = dbObj.query(TABLE_NAME_ENTRIES, mColumnList, null,
+        Cursor cursor = dbObj.query(TABLE_EVENT_ENTRIES, mColumnList, null,
                 null, null, null, null);
 
         while (cursor.moveToNext()) {

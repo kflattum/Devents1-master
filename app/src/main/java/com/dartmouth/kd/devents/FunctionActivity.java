@@ -5,6 +5,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,7 @@ public class FunctionActivity extends AppCompatActivity {
     MapFragment fragmentMap;
     CalendarActivity fragmentCalendar;
     CreateFragment fragmentCreate;
+    SettingsFragment fragmentSettings;
 
     //create a fragment class
     MyFragmentPageAdapter myFragmentPagerAdapter;
@@ -24,6 +26,7 @@ public class FunctionActivity extends AppCompatActivity {
     ArrayList<Fragment> fragments;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("TAGG","Made it in function activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_function);
 
@@ -34,14 +37,18 @@ public class FunctionActivity extends AppCompatActivity {
         fragmentMap = new MapFragment();
         fragmentCalendar = new CalendarActivity();
         fragmentCreate = new CreateFragment();
+        fragmentSettings = new SettingsFragment();
 
         fragments = new ArrayList<>();
-        fragments.add(fragmentMap);
-        fragments.add(fragmentCalendar);
         fragments.add(fragmentCreate);
+        fragments.add(fragmentCalendar);
+        fragments.add(fragmentMap);
+        fragments.add(fragmentSettings);
 
         myFragmentPagerAdapter = new MyFragmentPageAdapter(getFragmentManager(), fragments);
         viewPager.setAdapter(myFragmentPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
+
+
     }
 }

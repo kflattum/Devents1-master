@@ -8,6 +8,7 @@ import android.location.LocationListener;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -33,6 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     static final LatLng HANOVER = new LatLng(43.7022, 72.2896);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("TAGG","Made it in maps activity");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
@@ -96,4 +98,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onProviderDisabled(String provider) {}
     public void onProviderEnabled(String provider) {}
     public void onStatusChanged(String provider, int status, Bundle extras) {}
+
+    public void onExitMap(View view) {
+        view.setEnabled(false);
+        //Stop tracking service
+        finish();
+    }
+
 }
