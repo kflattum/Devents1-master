@@ -79,7 +79,7 @@ public class CreateCampusEvent extends FragmentActivity {
     // "Cancel" button is clicked
     public void onCancelClicked(View v) {
         // Discard the input and close the activity directly
-        Toast.makeText(getApplicationContext(), "Entry discarded.",
+        Toast.makeText(getApplicationContext(), "Event discarded.",
                 Toast.LENGTH_SHORT).show();
         finish();
     }
@@ -108,6 +108,14 @@ public class CreateCampusEvent extends FragmentActivity {
 
     public void onDateSet(int year, int monthOfYear, int dayOfMonth) {
         newEvent.setmDate(year, monthOfYear, dayOfMonth);
+    }
+
+    public void onStartSet(int hourOfDay, int minute) {
+        newEvent.setmStart(hourOfDay, minute);
+    }
+
+    public void onEndSet(int hourOfDay, int minute) {
+        newEvent.setmEnd(hourOfDay, minute);
     }
 
 

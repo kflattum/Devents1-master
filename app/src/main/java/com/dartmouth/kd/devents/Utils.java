@@ -15,7 +15,9 @@ import java.util.Locale;
 public class Utils {
 
 
-	public static final String DATE_FORMAT = "H:mm:ss MMM d yyyy";
+	public static final String DATE_FORMAT = "MMM d yyyy";
+	public static final String START_FORMAT = "H:mm";
+	public static final String END_FORMAT = "H:mm";
 	public static final String DISTANCE_FORMAT = "#.##";
 
 
@@ -35,4 +37,30 @@ public class Utils {
 		context.startActivity(intent);
 	}
 
+	public static String parseStart(long timeInMs, Context context) {
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.setTimeInMillis(timeInMs);
+		SimpleDateFormat timeFormat;
+		timeFormat = new SimpleDateFormat(START_FORMAT, Locale.getDefault());
+
+		return timeFormat.format(calendar.getTime());
+	}
+
+	public static String parseEnd(long timeInMs, Context context) {
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.setTimeInMillis(timeInMs);
+		SimpleDateFormat timeFormat;
+		timeFormat = new SimpleDateFormat(END_FORMAT, Locale.getDefault());
+
+		return timeFormat.format(calendar.getTime());
+	}
+
+	public static String parseDate(long timeInMs, Context context) {
+		GregorianCalendar calendar = new GregorianCalendar();
+		calendar.setTimeInMillis(timeInMs);
+		SimpleDateFormat dateFormat;
+		dateFormat = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
+
+		return dateFormat.format(calendar.getTime());
+	}
 }

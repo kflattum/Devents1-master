@@ -7,11 +7,14 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 
+import android.app.TimePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TimePicker;
+
 import java.util.Calendar;
 
 
@@ -102,6 +105,33 @@ public class DialogFragment extends android.app.DialogFragment {
                       }
                   }, year, month, day);
 
+      case DIALOG_ID_MANUAL_INPUT_START:
+          now = Calendar.getInstance();
+          hour = now.get(Calendar.HOUR_OF_DAY);
+          minute = now.get(Calendar.MINUTE);
+
+          return new TimePickerDialog(parent,
+                  new TimePickerDialog.OnTimeSetListener() {
+                      public void onTimeSet(TimePicker view, int hourOfDay,
+                                            int minute) {
+                          ((CreateCampusEvent) parent).onStartSet(
+                                  hourOfDay, minute);
+                      }
+                  }, hour, minute, false);
+
+      case DIALOG_ID_MANUAL_INPUT_END:
+          now = Calendar.getInstance();
+          hour = now.get(Calendar.HOUR_OF_DAY);
+          minute = now.get(Calendar.MINUTE);
+
+          return new TimePickerDialog(parent,
+                  new TimePickerDialog.OnTimeSetListener() {
+                      public void onTimeSet(TimePicker view, int hourOfDay,
+                                            int minute) {
+                          ((CreateCampusEvent) parent).onEndSet(
+                                  hourOfDay, minute);
+                      }
+                  }, hour, minute, false);
 
       case DIALOG_ID_MANUAL_INPUT_LOCATION:
 

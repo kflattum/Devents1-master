@@ -14,17 +14,17 @@ public class CampusEvent {
     private String mLocation;
     private String mDescription;
     private Calendar mDate;
-    private String mStart;
-    private String mEnd;
+    private Calendar mStart;
+    private Calendar mEnd;
 
 
     public CampusEvent(){
         this.mTitle = "";
         this.mLocation = "";
         this.mDescription = "";
-        this.mDate = Calendar.getInstance();;
-        this.mStart = "";
-        this.mEnd = "";
+        this.mDate = Calendar.getInstance();
+        this.mStart = Calendar.getInstance();
+        this.mEnd = Calendar.getInstance();
 
 
     }
@@ -83,19 +83,24 @@ public class CampusEvent {
 
     }
 
-    public String getmStart() {
+    public void setmStart(int hourOfDay, int minute) {
+        mStart.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        mStart.set(Calendar.MINUTE, minute);
+        mStart.set(Calendar.SECOND, 0);
+    }
+
+    public Calendar getmStart() {
         return mStart;
     }
 
-    public void setmStart(String start) {
-        this.mStart = start;
+    public void setmEnd(int hourOfDay, int minute) {
+        mEnd.set(Calendar.HOUR_OF_DAY, hourOfDay);
+        mEnd.set(Calendar.MINUTE, minute);
+        mEnd.set(Calendar.SECOND, 0);
     }
 
-    public String getmEnd() {
+    public Calendar getmEnd() {
         return mEnd;
     }
 
-    public void setmEnd(String end) {
-        this.mEnd = end;
-    }
 }
