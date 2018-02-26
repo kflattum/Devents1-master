@@ -159,6 +159,32 @@ public class DialogFragment extends android.app.DialogFragment {
                               }
                           }).create();
 
+      case DIALOG_ID_MANUAL_INPUT_DESCRIPTION:
+
+          textEntryView = new EditText(parent);
+          textEntryView.setInputType(InputType.TYPE_CLASS_TEXT);
+          textEntryView.setHint(R.string.ui_manual_input_description_hint);
+          textEntryView.setLines(4);
+          return new AlertDialog.Builder(parent)
+                  .setTitle(R.string.ui_manual_input_description)
+                  .setView(textEntryView)
+                  .setPositiveButton(R.string.ui_button_ok,
+                          new DialogInterface.OnClickListener() {
+                              public void onClick(DialogInterface dialog,
+                                                  int whichButton) {
+                                  ((CreateCampusEvent) parent).onDescriptionSet(textEntryView.getText()
+                                          .toString());
+
+                              }
+                          })
+                  .setNegativeButton(R.string.ui_button_cancel,
+                          new DialogInterface.OnClickListener() {
+                              public void onClick(DialogInterface dialog,
+                                                  int whichButton) {
+                                  textEntryView.setText("");
+                              }
+                          }).create();
+
 
    default:
     return null;

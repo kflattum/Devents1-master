@@ -62,6 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMapLongClickListener(this);
         mMap.setOnMarkerClickListener(this);
         Log.d("kf", "map ready ");
+        Log.d("TAGG","Made it in on map ready");
         //Move the camera instantly to the best city in the world! with a zoom of 15.
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HANOVER, 15));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);

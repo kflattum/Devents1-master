@@ -49,14 +49,14 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="AIzaSyAPf9TwmPQWRvJhpnatX5DkQYLtAAjsnPQ" />
 
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".UserProfile"
-            android:label="User Profile" />
+            android:label="@string/title_activity_maps" />
         <activity android:name=".DisplayEventActivity" />
         <activity android:name=".FunctionActivity"></activity>
     </application>

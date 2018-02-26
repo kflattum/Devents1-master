@@ -168,6 +168,8 @@
     <string name="ui_manual_input_location">Location</string>
     <string name="ui_manual_input_title_hint">ex. Dartmouth Formula Racing Club Meeting</string>
     <string name="ui_manual_input_title">Event Title</string>
+    <string name="ui_manual_input_description_hint">ex. Join us for our weekly meeting featuring free tuk tuk...</string>
+    <string name="ui_manual_input_description">Event Description</string>
     <string name="ui_button_ok">Ok</string>
     <string name="ui_button_save">Save</string>
     <string name="ui_button_cancel">Cancel</string>
