@@ -4,20 +4,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.dartmouth.kd.devents.SettingsFragment">
+    tools:context="com.dartmouth.kd.devents.MapFragment">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="User Profile" />
+        android:text="Map Fragment" />
 
     <Button
-        android:id="@+id/startProfile"
+        android:id="@+id/startMap"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:text="Launch User Profile" />
+        android:text="Launch Map" />
 
 
 </LinearLayout>

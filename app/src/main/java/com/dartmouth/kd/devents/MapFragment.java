@@ -9,17 +9,36 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MapFragment extends Fragment {
 
     private Intent myIntent;
 
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        myIntent = new Intent(getActivity(),  MapsActivity.class);
-        startActivityForResult(myIntent, 0);
-        Log.d("TAGG","Made it in map frag");
+        setRetainInstance(true);
     }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+        View ret = inflater.inflate(com.dartmouth.kd.devents.R.layout.fragment_map, container, false);
+
+        Button mapButton = (Button) ret.findViewById(R.id.startMap);
+
+        mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg){
+                myIntent = new Intent(getActivity(),  MapsActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+        });
+
+        return ret;
+    }
+
 }

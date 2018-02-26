@@ -40,10 +40,11 @@ public class FunctionActivity extends AppCompatActivity {
         fragmentSettings = new SettingsFragment();
 
         fragments = new ArrayList<>();
+        fragments.add(fragmentSettings);
         fragments.add(fragmentCreate);
         fragments.add(fragmentCalendar);
         fragments.add(fragmentMap);
-        fragments.add(fragmentSettings);
+
 
         myFragmentPagerAdapter = new MyFragmentPageAdapter(getFragmentManager(), fragments);
         viewPager.setAdapter(myFragmentPagerAdapter);

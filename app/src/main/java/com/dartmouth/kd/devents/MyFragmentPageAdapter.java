@@ -36,13 +36,13 @@ public class MyFragmentPageAdapter extends FragmentPagerAdapter {
     //char sequence is base class of string, returns string of title
     public CharSequence getPageTitle(int position){
         if(position == 0)
-            return "Create";
-        else if(position == 1)
-            return "Calendar";
-        else if(position == 2)
-            return "Map";
-        else if(position == 3)
             return "Profile";
+        else if(position == 1)
+            return "Create";
+        else if(position == 2)
+            return "Calendar";
+        else if(position == 3)
+            return "Map";
         else
             return null;
     }
