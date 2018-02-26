@@ -6,6 +6,7 @@ import android.preference.PreferenceFragment;
 
 
 /**
+ * Have to click back for it to work
  *Use a PreferenceFragment to store user preferences
  */
 
