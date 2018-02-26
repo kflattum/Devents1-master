@@ -2,18 +2,35 @@ package com.dartmouth.kd.devents;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.graphics.Color;
+import android.location.Location;
+import android.location.LocationListener;
+import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
-public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
+
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, LocationListener,
+        GoogleMap.OnMapClickListener, GoogleMap.OnMapLongClickListener, GoogleMap.OnMarkerClickListener{
 
     private GoogleMap mMap;
+    TextView tvLocInfo;
 
+    boolean markerClicked;
+    PolylineOptions rectOptions;
+    Polyline polyline;
+    static final LatLng HANOVER = new LatLng(43.7022, 72.2896);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +39,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        tvLocInfo = (TextView)findViewById(R.id.locinfo);
     }
 
 
@@ -37,10 +55,45 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.setOnMapClickListener(this);
+        mMap.setOnMapLongClickListener(this);
+        mMap.setOnMarkerClickListener(this);
+        Log.d("kf", "map ready ");
+        //Move the camera instantly to the best city in the world! with a zoom of 15.
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(HANOVER, 15));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
     }
+
+    @Override
+    public void onMapClick(LatLng point) {
+        tvLocInfo.setText(point.toString());
+        mMap.animateCamera(CameraUpdateFactory.newLatLng(point));
+
+        markerClicked = false;
+    }
+
+    @Override
+    public void onMapLongClick(LatLng point) {
+        tvLocInfo.setText("New marker added@" + point.toString());
+        mMap.addMarker(new MarkerOptions().position(point).title(point.toString()));
+
+        markerClicked = false;
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+
+        if(markerClicked) {
+
+            //going to show the event associated with the marker
+        }
+        return true;
+    }
+
+
+    public void onLocationChanged(Location location){}
+    public void onProviderDisabled(String provider) {}
+    public void onProviderEnabled(String provider) {}
+    public void onStatusChanged(String provider, int status, Bundle extras) {}
 }
