@@ -2,10 +2,13 @@ package com.dartmouth.kd.devents;
 
 import android.*;
 import android.app.AlertDialog;
+import android.app.Fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,6 +26,8 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity  {
@@ -36,10 +42,22 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        checkPermissions();
+
+
         FirebaseApp.initializeApp(this);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = firebaseAuth.getCurrentUser();
         databaseReference = FirebaseDatabase.getInstance().getReference();
+
+        if(firebaseUser == null) {
+
+        }else{
+            userID = firebaseUser.getUid();
+            databaseReference = databaseReference.child("users").child(userID).child("items");
+            Intent intent = new Intent(this, FunctionActivity.class);
+            startActivity(intent);
+        }
     }
     //called when login button is pressed
     public void login_button(View view)
